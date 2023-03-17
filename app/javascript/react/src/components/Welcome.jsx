@@ -1,12 +1,15 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import LoginSignUp from './LoginSignUp';
+
 
 const Welcome = () => {
-    return(
-        <div className = "container">
-            <h1> yo wassup </h1>
+    return (
+        <div className="App">
+          {/* <img src={image} alt='image'></img> */}
+          <LoginSignUp />
         </div>
-    )
+      )
 }
 
 
