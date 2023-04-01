@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyString
+  semester: MyString
+  score1: 1
+  score2: 1
+  score3: 1
+  score4: 1
+  course: one
+
+two:
+  title: MyString
+  description: MyString
+  semester: MyString
+  score1: 1
+  score2: 1
+  score3: 1
+  score4: 1
+  course: two
