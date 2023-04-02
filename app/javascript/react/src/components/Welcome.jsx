@@ -11,7 +11,7 @@ const Welcome = () => {
       <Routes>
         <Route path="/" element={<LoginSignUp />} />
         <Route path="/courses" element={<Courses />} />
-        <Route path="/course" element={<Course />} />
+        <Route path="/courses/:slug" element={<Course />} />
         {/* the below line is for testing purpose */}
         <Route path="/test" element={<div onClick={() => console.log('Path:', '/test')}>Test</div>} />
       </Routes>
