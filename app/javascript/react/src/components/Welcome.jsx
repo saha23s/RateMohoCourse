@@ -1,5 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
+import {createRoot} from 'react-dom/client'; 
 import LoginSignUp from './LoginSignUp';
 import {BrowserRouter} from 'react-router-dom';
 import {Routes, Route} from 'react-router-dom';
@@ -19,14 +20,21 @@ const Welcome = () => {
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener('DOMContentLoaded', () => {
 
-    ReactDOM.render(
-    <BrowserRouter>
-      <Welcome/>
-    </BrowserRouter>
-    , document.getElementById('welcome'))
+//     ReactDOM.render(
+//     <BrowserRouter>
+//       <Welcome/>
+//     </BrowserRouter>
+//     , document.getElementById('welcome'))
 
-})
+// })
+
+const root = createRoot(document.getElementById('welcome')); 
+root.render(
+  <BrowserRouter>
+    <Welcome/>
+  </BrowserRouter>
+);
 
 export default Welcome
