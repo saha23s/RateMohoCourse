@@ -1,4 +1,4 @@
-import React, {useState, useEffect, Fragment} from "react";
+import React, {useState, useEffect, Fragment, useRef} from "react";
 import {useParams} from 'react-router-dom'; 
 import Header from './Header';
 import axios from 'axios';
@@ -47,9 +47,6 @@ const Main = styled.div`
     const {slug} = useParams()
 
     useEffect(() =>{
-
-       
-        
         const url = `/api/v1/courses/${slug}`
 
         axios.get(url)
@@ -58,20 +55,33 @@ const Main = styled.div`
             setLoaded(true)
         })
         .catch(resp => console.log(resp))
-
-
-
-
-
     },[])
 
-    const handleChange = (e) =>{
+
+    const handleChange = (e, name) =>{
         e.preventDefault()
-        setReview(Object.assign({}, review, {[e.target.name]: e.target.value}))
+    
+        if (name === 'title') {
+            setReview({...review, title: e.target.value})
+        } else if (name === 'description') {
+            setReview({...review, description: e.target.value})
+        }
     }
 
     const handleSubmit = (e) =>{
         e.preventDefault()
+
+        // const csrfToken = document.querySelector('[name=csrf-token').content
+        // axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
+
+        // const course_id = course.data.id
+        // axios.post('/api/v1/reviews', {review, course_id})
+        // .then(
+        //     resp =>{
+        //         debugger
+        //     }
+        // )
+        // .catch(resp => {})
     }
 
 
