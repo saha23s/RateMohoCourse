@@ -9,12 +9,19 @@ import axios from 'axios';
 
 
 const ReviewForm = (props) => {
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(props.review.score1);
   const [hoverRating, setHoverRating] = useState(0);
   const ratingOptions = [5, 4, 3, 2, 1].map((score, index) => {
     return (
       <Fragment key={index}>
-        <input type="radio" value={score} name="rating" checked = {props.review.score == score} onChange={() => setRating(score)} id={`rating-${score}`} />
+        <input
+          type="radio"
+          value={score}
+          name="rating"
+          checked={rating === score} // Compare with the current rating state
+          onChange={() => setRating(score)}
+          id={`rating-${score}`}
+        />
         <label htmlFor={`rating-${score}`} style={{ position: 'relative' }}>
           {score <= (hoverRating || rating) ? <Selected /> : <Gray />}
         </label>
@@ -40,15 +47,6 @@ const ReviewForm = (props) => {
     }
   };
    
-  //whatever the fuck  
-//   setRating = (score) => {
-//     e.preventDefault();// prolly not needed as per the vid
-//     //set a debugger 
-//     console.log(score)
-//     console.log("setting the score in backend")
-//     setReview({...review, score})
-
-// }
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('handleSubmit called');
@@ -67,7 +65,7 @@ const ReviewForm = (props) => {
     typeof(title); 
     typeof(description); 
     axios
-      .post('/api/v1/reviews', { title, description, course_id , rating})
+      .post('/api/v1/reviews', { title, description, course_id , score1: rating})
 
       .then((resp) => { //never entering here ??
         console.log('idk man');

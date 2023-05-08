@@ -34,8 +34,11 @@ const Header = (props) => {
         <UserReviewCount>
           {/* <span className="review-count">{reviews ? reviews.length : 0}</span> user reviews */}
         </UserReviewCount>
+        {/* //creating a new one to follow the video  */}
+        <div className="totalReviews">{total} User Reviews </div>
         {/* <Rating score={average} /> */}
         {/* <ScoreOutOf>{average.toFixed(1)} out of 5 stars</ScoreOutOf>        */}
+        <div className="totalOutof">{avg_score} out of 5 </div>
       </div>
     </Wrapper> 
   )

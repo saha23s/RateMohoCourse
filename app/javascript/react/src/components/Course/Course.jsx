@@ -40,7 +40,7 @@ const Main = styled.div`
 
 
     const [course, setCourse] = useState({})
-    const [review, setReview] = useState({ title: '', description: '', score: 0 })
+    const [review, setReview] = useState({ title: '', description: '', score1: 0 })
     const [reviews, setReviews] = useState([])
     const [loaded, setLoaded] = useState(false)
 
@@ -101,13 +101,10 @@ const Main = styled.div`
             <Fragment>
             <Column>
                 <Main>
-
-                    <Header attributes={course.data.attributes}
+                    <Header 
+                        attributes={course.data.attributes}
                         reviews={course.included}
                     />
-                    
-                
-                
                     <div className="reviews"></div>
                 </Main>
             </Column>
