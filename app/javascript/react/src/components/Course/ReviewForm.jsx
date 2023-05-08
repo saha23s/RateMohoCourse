@@ -1,112 +1,28 @@
-// import React, { useRef } from 'react';
-// import styled from 'styled-components'
-
-// const RatingContainer = styled.div`
-//   text-align: center;
-//   border-radius: 4px;
-//   font-size:20px;
-//   padding: 40px 0 10px 0;
-//   border: 1px solid #e6e6e6;
-//   margin: 20px 0;
-//   padding:20px;
-//   background: #fff;
-// `
-
-// const RatingBox = styled.div`
-//   background: #fff;
-//   display: flex;
-//   width: 100%;
-//   justify-content: center;
-//   overflow: hidden;
-//   flex-direction: row-reverse;
-//   position: relative;
-//   input { display: none; }
-//   label {
-//     cursor: pointer;
-//     width: 40px;
-//     height: 40px;
-//     margin-top: auto;
-//     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23e3e3e3' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
-//     background-repeat: no-repeat;
-//     background-position: center;
-//     background-size: 76%;
-//     transition: .3s;
-//   }
-//   input:checked ~ label, input:checked ~ label ~ label {
-//     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23fcd93a' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
-//   }
-//   input:not(:checked) ~ label:hover,
-//   input:not(:checked) ~ label:hover ~ label {
-//     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23d8b11e' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
-//   }
-// `
-
-// const Field = styled.div`
-//   border-radius: 4px;
-//   input {
-//     width: 96%;
-//     min-height:50px;
-//     border-radius: 4px;
-//     border: 1px solid #E6E6E6;
-//     margin: 12px 0;
-//     padding: 12px;
-//   }
-  
-//   textarea {
-//     width: 100%;
-//     min-height:80px;
-//     border-radius: 4px;
-//     border: 1px solid #E6E6E6;
-//     margin: 12px 0;
-//     padding: 12px;      
-//   }
-// `
-
-// const SubmitBtn = styled.button`
-//   color: #fff;
-//   background-color: #71b406;
-//   border-radius: 4px;   
-//   padding:12px 12px;  
-//   border: 1px solid #71b406;
-//   width:100%;
-//   font-size:18px;
-//   cursor: pointer;
-//   transition: ease-in-out 0.2s;
-//   &:hover {
-//     background: #71b406;
-//     border-color: #71b406;
-//   }
-// `
-
-// const Wrapper = styled.div`
-//   background:white;
-//   padding:20px;
-//   margin-left: 15px;
-//   border-radius: 0;
-//   padding-bottom:80px;
-//   border-left: 1px solid rgba(0,0,0,0.1);
-//   height: 100vh;
-//   padding-top: 100px;
-//   background: black;
-//   padding-right: 80px;
-// `
-
-// const ReviewHeadline = styled.div`
-//   font-size:20px;
-//   padding: 15px 0;
-//   font-weight: bold;
-//   color: #fff;
-// `
-
-// const RatingBoxTitle = styled.div`
-//   font-size: 20px;
-//   padding-bottom: 20px;
-//   font-weight: bold;`
+import styled from 'styled-components';
+import Gray from './Stars/Gray';
+import Selected from './Stars/Selected';
+import Hover from './Stars/Hover';
 
 import React, { useState, useEffect, useRef } from "react";
+import { Fragment } from "react";
 import axios from 'axios';
 
+
 const ReviewForm = (props) => {
+  const [rating, setRating] = useState(0);
+  const [hoverRating, setHoverRating] = useState(0);
+  const ratingOptions = [5, 4, 3, 2, 1].map((score, index) => {
+    return (
+      <Fragment key={index}>
+        <input type="radio" value={score} name="rating" checked = {props.review.score == score} onChange={() => setRating(score)} id={`rating-${score}`} />
+        <label htmlFor={`rating-${score}`} style={{ position: 'relative' }}>
+          {score <= (hoverRating || rating) ? <Selected /> : <Gray />}
+        </label>
+      </Fragment>
+    );
+  });
+
+  
   const [title, setTitle] = useState(props.review.title);
   const [description, setDescription] = useState(props.review.description);
   const inputRef = useRef(null);
@@ -123,29 +39,64 @@ const ReviewForm = (props) => {
       setDescription(e.target.value);
     }
   };
+   
+  //whatever the fuck  
+//   setRating = (score) => {
+//     e.preventDefault();// prolly not needed as per the vid
+//     //set a debugger 
+//     console.log(score)
+//     console.log("setting the score in backend")
+//     setReview({...review, score})
 
+// }
   const handleSubmit = (e) => {
     e.preventDefault();
-    const csrfToken = document.querySelector('[name=csrf-token').content;
-    axios.defaults.headers.common["X-CSRF-TOKEN"] = csrfToken;
-    const course_id = props.attributes.id;
+    console.log('handleSubmit called');
+    console.log('title:', title);
+    console.log('description:', description);
+    console.log('rating:', rating);
+    const csrfToken = document.querySelector('[name=csrf-token]').content
+    axios.defaults.headers.common["X-CSRF-TOKEN"] = csrfToken
+    console.log(props)
+    const course_id = props.attributes.id
+    console.log('course_id:', course_id)
+    //add a debugger here
+    debugger; 
+
+    //check the type of the params passed in axios 
+    typeof(title); 
+    typeof(description); 
     axios
-      .post("/api/v1/reviews", { title, description, course_id })
-      .then((resp) => {
-        const included = [...props.included, resp.data.data];
+      .post('/api/v1/reviews', { title, description, course_id , rating})
+
+      .then((resp) => { //never entering here ??
+        console.log('idk man');
+        console.log(rating);
+        console.log('resp:', resp);
+        console.log('props', props);
+        console.log('props.included:', props.attributes.relationships.reviews.data);
+        const included = [...props.attributes.relationships.reviews.data, resp.data.data];
         const reviews = included.map((item) => {
+          // I am not sure if we should include setCourse() state here or not
           return (
-            <div key={item.attributes.id}>
-              <h1>{item.attributes.title}</h1>
-              <p>{item.attributes.description}</p>
+            <div key={item.id}>
+              <h1>{item.title}</h1>
+              <p>{item.description}</p>
             </div>
+            //console.log('item:', item)
           );
         });
-        props.setReviews(reviews);
+        
+        console.log('reviews in reviewfrom:', reviews);
+        props.setReviews(reviews); //checking setReviews state
         setTitle("");
         setDescription("");
+        setRating(0);
+        debugger
       })
-      .catch((resp) => {});
+      .catch((error) => {
+        console.log("error in axios post request:", error);
+      });
   };
 
   return (
@@ -168,10 +119,24 @@ const ReviewForm = (props) => {
             placeholder="Description"
           />
         </div>
+        <div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: 'white' }}>
+            <div style={{ marginBottom: '10px' }}>Rate This Course</div>
+            <div
+            //make the stars fit in the div
+              
+              style={{ display: 'flex', flexDirection: 'row-reverse', justifyContent: 'center', alignItems: 'center' }}
+              onMouseLeave={() => setHoverRating(0)}
+            >
+              {ratingOptions}
+              {hoverRating > 0 && <Hover />}
+            </div>
+          </div>
+        </div>
         <button type="submit">Submit your review</button>
       </form>
     </div>
-  );
+  ); 
 };
 
 export default ReviewForm;

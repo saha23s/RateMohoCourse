@@ -40,7 +40,7 @@ const Courses = () => {
         .then(resp => {
             setCourses(resp.data.data)
         })
-        .catch(resp => console.log(resp))
+        .catch(resp => console.log(resp.data))
     }, [courses.lengh])
 
     const grid = courses.map( item => {

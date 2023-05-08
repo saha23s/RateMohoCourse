@@ -40,7 +40,8 @@ const Main = styled.div`
 
 
     const [course, setCourse] = useState({})
-    const [review, setReview] = useState({})
+    const [review, setReview] = useState({ title: '', description: '', score: 0 })
+    const [reviews, setReviews] = useState([])
     const [loaded, setLoaded] = useState(false)
 
 
@@ -58,32 +59,40 @@ const Main = styled.div`
     },[])
 
 
-    const handleChange = (e, name) =>{
-        e.preventDefault()
-    
-        if (name === 'title') {
-            setReview({...review, title: e.target.value})
-        } else if (name === 'description') {
-            setReview({...review, description: e.target.value})
-        }
-    }
+    // const handleChange = (e, name) =>{
+    //     e.preventDefault()
+    //     if (name === 'title') {
+    //         setReview({...review, title: e.target.value})
+    //     } else if (name === 'description') {
+    //         setReview({...review, description: e.target.value})
+    //     }
+    // }
 
-    const handleSubmit = (e) =>{
-        e.preventDefault()
+    // const handleSubmit = (e) =>{
+    //     e.preventDefault()
 
-        // const csrfToken = document.querySelector('[name=csrf-token').content
-        // axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
+    //     // const csrfToken = document.querySelector('[name=csrf-token').content
+    //     // axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
 
-        // const course_id = course.data.id
-        // axios.post('/api/v1/reviews', {review, course_id})
-        // .then(
-        //     resp =>{
-        //         debugger
-        //     }
-        // )
-        // .catch(resp => {})
-    }
+    //     // const course_id = course.data.id
+    //     // axios.post('/api/v1/reviews', {review, course_id})
+    //     // .then(
+    //     //     resp =>{
+    //     //         debugger
+    //     //     }
+    //     // )
+    //     // .catch(resp => {})
+    // }
 
+    // const setRating = (score, e) => {
+    //     e.preventDefault();// prolly not needed as per the vid
+    //     //set a debugger 
+    //     debugger;
+    //     console.log(score)
+    //     console.log("setting the score in backend")
+    //     setReview({...review, score})
+
+    // }
 
     return (
     <Wrapper> 
@@ -104,9 +113,12 @@ const Main = styled.div`
             </Column>
             <Column>
                 <ReviewForm
-                    handleChange = {handleChange}
-                    handleSubmit = {handleSubmit}
-                    attributes = {course.data.attributes}
+                    // handleChange = {handleChange}
+                    // handleSubmit = {handleSubmit}
+                    //setRating = {setRating}
+                    attributes = {course.data}
+                    setReview = {setReview}
+                    setReviews = {setReviews}
                     review = {review}
                 />
             </Column>
