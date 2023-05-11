@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This WebApp is a course review website for Mount Holyoke College Students. 
+The current version has the following features: 
 
-Things you may want to cover:
+ - user can rate a course using the form 
+ - user can see the previous ratings provided by others 
 
-* Ruby version
+Future Goals that we are planning to do: 
 
-* System dependencies
+- Implement User Authentication 
+- Let the user add a course if course doesnt exist in the available courses 
+- Implement a search button 
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
