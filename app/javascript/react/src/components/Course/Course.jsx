@@ -4,6 +4,7 @@ import Header from './Header';
 import axios from 'axios';
 import styled from 'styled-components'; 
 import ReviewForm from "./ReviewForm";
+import Review from './Review'; 
 
 const Course = () => {
 
@@ -58,6 +59,20 @@ const Main = styled.div`
         .catch(resp => console.log(resp))
     },[])
 
+    //console.log("testing reviews",  course.attributes); 
+    let reviewArr; 
+    if ( loaded && course.included){
+        reviewArr = course.included.map((item, index) => {
+            return(
+              <Review
+              key = {index}
+              attributes = {item.attributes} 
+              />
+            )
+        
+          }) 
+
+    }
 
     // const handleChange = (e, name) =>{
     //     e.preventDefault()
@@ -105,7 +120,7 @@ const Main = styled.div`
                         attributes={course.data.attributes}
                         reviews={course.included}
                     />
-                    <div className="reviews"></div>
+                    {reviewArr}
                 </Main>
             </Column>
             <Column>
