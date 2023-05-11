@@ -11,5 +11,6 @@ Future Goals that we are planning to do:
 - Implement User Authentication 
 - Let the user add a course if course doesnt exist in the available courses 
 - Implement a search button 
+- Improving the Front-End of the webapp. 
 
 
