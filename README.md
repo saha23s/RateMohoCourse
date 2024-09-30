@@ -1,7 +1,9 @@
 # README
 
-This WebApp is a course review website for Mount Holyoke College Students. 
+This WebApp is a course review website for Mount Holyoke College Students. Our goal of this independednt study was building the foundation of React, Ruby on Rails and MySQL. We have woked on locally implementing the web app, but did not deploy it.
 The current version has the following features: 
+Local Environment: [Not deployed]
+<img width="1635" alt="Screenshot 2024-09-30 at 5 20 49 PM" src="https://github.com/user-attachments/assets/22d81108-da02-4b07-adb7-9deb531b1fec">
 
  - user can rate a course using the form 
  - user can see the previous ratings provided by others 
